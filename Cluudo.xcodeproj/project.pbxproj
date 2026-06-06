@@ -15,6 +15,7 @@
 		AA000000000000000000001B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000001A /* SettingsView.swift */; };
 		AA000000000000000000001D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000001C /* Assets.xcassets */; };
 		AA0000000000000000000020 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000021 /* SettingsWindowController.swift */; };
+		AA0000000000000000000027 /* UpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000026 /* UpdateChecker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		AA000000000000000000001C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Assets.xcassets"; path = "Assets.xcassets"; sourceTree = "<group>"; };
 		AA000000000000000000001E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info.plist"; path = "Info.plist"; sourceTree = "<group>"; };
 		AA0000000000000000000021 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SettingsWindowController.swift"; path = "SettingsWindowController.swift"; sourceTree = "<group>"; };
+		AA0000000000000000000026 /* UpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UpdateChecker.swift"; path = "UpdateChecker.swift"; sourceTree = "<group>"; };
 		AA000000000000000000001F /* Cluudo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cluudo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 				AA0000000000000000000016 /* WeatherModels.swift */,
 				AA0000000000000000000021 /* SettingsWindowController.swift */,
 				AA0000000000000000000025 /* StatusBarController.swift */,
+				AA0000000000000000000026 /* UpdateChecker.swift */,
 				AA0000000000000000000004 /* Views */,
 				AA000000000000000000001C /* Assets.xcassets */,
 				AA000000000000000000001E /* Info.plist */,
@@ -161,6 +164,7 @@
 				AA0000000000000000000024 /* StatusBarController.swift in Sources */,
 				AA000000000000000000001B /* SettingsView.swift in Sources */,
 				AA0000000000000000000020 /* SettingsWindowController.swift in Sources */,
+				AA0000000000000000000027 /* UpdateChecker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

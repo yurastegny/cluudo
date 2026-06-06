@@ -17,6 +17,8 @@ final class StatusBarController: NSObject, NSApplicationDelegate, UNUserNotifica
     private let forecastSep     = NSMenuItem.separator()
     private var forecastItems:  [NSMenuItem] = []
     private let refreshItem     = NSMenuItem(title: "", action: nil, keyEquivalent: "")
+    private let updateItem      = NSMenuItem(title: "", action: nil, keyEquivalent: "")
+    private let updateChecker   = UpdateChecker()
     private let popupWidth: CGFloat = 288
     private let didShowInitialSettingsKey = "didShowInitialSettings"
 
@@ -29,6 +31,8 @@ final class StatusBarController: NSObject, NSApplicationDelegate, UNUserNotifica
         buildMenu()
         manager.onUpdate = { [weak self] in self?.refresh() }
         showSettingsOnFirstLaunch()
+        updateChecker.onUpdateAvailable = { [weak self] version in self?.showUpdateItem(version: version) }
+        updateChecker.check()
     }
 
     nonisolated func userNotificationCenter(
@@ -36,6 +40,10 @@ final class StatusBarController: NSObject, NSApplicationDelegate, UNUserNotifica
         didReceive response: UNNotificationResponse,
         withCompletionHandler completionHandler: @escaping () -> Void
     ) {
+        let isUpdateTap = response.notification.request.content.userInfo["action"] as? String == "openReleases"
+        if isUpdateTap {
+            Task { @MainActor in self.updateChecker.openReleasesPage() }
+        }
         completionHandler()
     }
 
@@ -113,6 +121,10 @@ final class StatusBarController: NSObject, NSApplicationDelegate, UNUserNotifica
         let quitItem = NSMenuItem(title: "", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "")
         quitItem.attributedTitle = styled("Quit")
 
+        updateItem.action  = #selector(openReleasesPage)
+        updateItem.target  = self
+        updateItem.isHidden = true
+
         let menu = NSMenu()
         menu.autoenablesItems = false
         hourlySep.isHidden  = true
@@ -122,6 +134,7 @@ final class StatusBarController: NSObject, NSApplicationDelegate, UNUserNotifica
                      hourlySep,
                      forecastSep,
                      updatedItem, NSMenuItem.separator(),
+                     updateItem,
                      settingsItem, NSMenuItem.separator(),
                      quitItem] as [NSMenuItem] {
             menu.addItem(item)
@@ -203,6 +216,20 @@ final class StatusBarController: NSObject, NSApplicationDelegate, UNUserNotifica
 
     @objc private func openSettings() {
         manager.settingsController.show(manager: manager)
+    }
+
+    @objc private func openReleasesPage() {
+        updateChecker.openReleasesPage()
+    }
+
+    private func showUpdateItem(version: String) {
+        let menuFont = NSFont.menuFont(ofSize: 16)
+        let title = NSAttributedString(
+            string: "Cluudo \(version) available ↗",
+            attributes: [.font: menuFont, .foregroundColor: NSColor.systemBlue]
+        )
+        updateItem.attributedTitle = title
+        updateItem.isHidden = false
     }
 
     private func showSettingsOnFirstLaunch() {
