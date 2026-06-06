@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+
+# Xcode
+DerivedData/
+.build/
+build/
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+
+# Local editor and agent settings
+.claude/
+.codex/
+
+# Swift Package Manager
+.swiftpm/
+Package.resolved
+
+# Distribution artifacts
+*.app
+*.dSYM
+*.dSYM.zip
+*.xcarchive
