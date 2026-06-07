@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./img/icon.png" width="256" height="256" alt="Cluudo"/>
+  <img src="./img/appicon.png" width="256" height="256" alt="Cluudo's icon"/>
 </p>
 
 # Cluudo
@@ -17,7 +17,7 @@ Cluudo is a small native macOS menu bar weather app. It shows the current condit
 
 ## Screenshot
 
-<img src="./img/screenshot.png" alt="Screenshot" width="448"/>
+<img src="./img/weather.png" alt="Screenshot" width="720"/>
 
 ## Installation
 
