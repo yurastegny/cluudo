@@ -422,7 +422,7 @@ final class StatusBarController: NSObject, NSApplicationDelegate, UNUserNotifica
 
         let lm: CGFloat = 16
         let totalW = popupWidth
-        let iconS: CGFloat = 26
+        let iconS: CGFloat = 22
         let rightPadding: CGFloat = 16
         let minW: CGFloat = 46
         let maxW: CGFloat = 44
@@ -523,22 +523,22 @@ private func makeIcon(frame: NSRect, slug: String, monochrome: Bool) -> NSImageV
 private func sfSymbolName(for slug: String) -> String {
     switch slug {
     case "day":
-        return "sun.max"
+        return "sun.max.fill"
     case "night":
-        return "moon.stars"
+        return "moon.stars.fill"
     case "cloudy":
-        return "cloud"
+        return "cloud.fill"
     case "cloudy-day":
-        return "cloud.sun"
+        return "cloud.sun.fill"
     case "cloudy-night":
-        return "cloud.moon"
+        return "cloud.moon.fill"
     case "rainy":
-        return "cloud.rain"
+        return "cloud.rain.fill"
     case "snowy-1", "snowy-2", "snowy-3":
-        return "cloud.snow"
+        return "cloud.snow.fill"
     case "thunder":
-        return "cloud.bolt.rain"
+        return "cloud.bolt.rain.fill"
     default:
-        return "cloud"
+        return "cloud.fill"
     }
 }
