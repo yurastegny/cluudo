@@ -493,7 +493,7 @@ private final class HorizontalScrollView: NSScrollView {
     override func scrollWheel(with event: NSEvent) {
         let dx = event.scrollingDeltaX
         let dy = event.scrollingDeltaY
-        let delta = (abs(dx) > abs(dy) ? dx : -dy) * 0.4
+        let delta = (abs(dx) > abs(dy) ? dx : dy) * 0.4
         var origin = contentView.bounds.origin
         origin.x = max(0, min(
             origin.x - delta,
